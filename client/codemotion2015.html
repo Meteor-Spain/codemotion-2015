@@ -9,6 +9,18 @@
 </body>
 
 <template name="hello">
+    <select id="select">
+        <option value=0>Tipo 0</option>
+        <option value=1>Tipo 1</option>
+        <option value=2>Tipo 2</option>
+    </select>
   <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+  <h2>New Posts</h2>
+  {{#each posts}}
+    <div>{{name}}</div>
+  {{/each}}
+  <h2>Old Posts</h2>
+  {{#each oldPosts}}
+    <div>{{name}}</div>
+  {{/each}}
 </template>

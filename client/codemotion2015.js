@@ -1,23 +1,30 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+// counter starts at 0
+Session.setDefault('type', '0');
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+Template.hello.onRendered(function () {
+    var that = this;
+    Meteor.subscribe("oldPosts");
+    this.autorun(function(){
+        Meteor.subscribe("posts",Session.get('type'));
+    })
+});
+
+Template.hello.helpers({
+    posts: function(){
+        return Posts.find({type:Session.get('type')});
+    },
+    oldPosts: function(){
+        return Posts.find({old:true});
     }
-  });
+});
 
-  Template.hello.events({
+Template.hello.events({
     'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+        // increment the counter when button is clicked
+        Posts.insert({name:"nuevo",type:Session.get('type')});
+        Posts.insert({name:"viejo",old:true});
+    },
+    'change #select':function(e,t){
+        Session.set('type',e.currentTarget.value);
     }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+});
