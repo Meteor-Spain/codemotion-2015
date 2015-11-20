@@ -3,7 +3,6 @@ Session.setDefault('type', '0');
 
 Template.hello.onRendered(function () {
     var that = this;
-    Meteor.subscribe("oldPosts");
     this.autorun(function(){
         Meteor.subscribe("posts",Session.get('type'));
     })

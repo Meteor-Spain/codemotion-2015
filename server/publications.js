@@ -1,5 +1,5 @@
 Meteor.publish("oldPosts", function(){
-	return Posts.find({old:true});
+	return Posts.find();
 });
 
 Meteor.publish("posts", function(type){
