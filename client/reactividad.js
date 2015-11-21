@@ -19,7 +19,5 @@ Tracker.autorun(() => {
 Tracker.autorun(() => {
   if (CurrentPage.get() > TotalPages.get()) {
     CurrentPage.set(TotalPages.get());
-  } else if (CurrentPage.get() <= 0) {
-    CurrentPage.set(1);
   }
 });

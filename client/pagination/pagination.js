@@ -7,9 +7,6 @@ Template.pagination.helpers({
   },
   totalPages() {
     return TotalPages.get();
-  },
-  currentPage() {
-    return CurrentPage.get();
   }
 });
 
@@ -23,10 +20,6 @@ Template.pagination.events({
   },
   'change #postsPerPage'(event) {
     PostsPerPage.set(event.currentTarget.value);
-  },
-  'click .previous-page'() {
-    let oldValue = CurrentPage.get();
-    CurrentPage.set(oldValue - 1);
   },
   'click .next-page'() {
     let oldValue = CurrentPage.get();
