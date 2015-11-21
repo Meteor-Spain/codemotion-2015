@@ -1,0 +1,60 @@
+<template name="pagination">
+  <div class="ui very padded segment">
+    <div class="ui three column grid">
+      <div class="column">
+        <div class="ui right labeled fluid input">
+          <input type="text" value={{postsCount}} readonly="">
+          <div class="ui label">
+            total posts
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui right labeled fluid input">
+          <input type="text" value={{totalPages}} readonly="">
+          <div class="ui label">
+            total pages
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui right labeled fluid input">
+          <input type="text" value={{currentPage}} readonly="">
+          <div class="ui label">
+            current page
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui three column add-and-remove-posts grid">
+      <div class="column">
+        <div class="ui teal add-post button">
+          Add Post
+        </div>
+        <div class="ui red remove-post button">
+          Remove Post
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui right labeled fluid input">
+          <input type="text" value={{postsPerPage}} id="postsPerPage">
+          <div class="ui teal label">
+            posts per page
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui buttons">
+          <div class="ui left labeled icon previous-page button">
+            <i class="backward icon"></i>
+            Previous
+          </div>
+          <div class="ui right labeled icon next-page button">
+            Next
+            <i class="forward icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
